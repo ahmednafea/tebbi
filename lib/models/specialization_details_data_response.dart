@@ -140,9 +140,9 @@ class Doctor {
 class City {
   final int? id;
   final String? name;
-  final Specialization? governrate;
+  final Specialization? governorate;
 
-  City({this.id, this.name, this.governrate});
+  City({this.id, this.name, this.governorate});
 
   factory City.fromJson(String str) => City.fromMap(json.decode(str));
 
@@ -151,7 +151,7 @@ class City {
   factory City.fromMap(Map<String, dynamic> json) => City(
     id: json["id"],
     name: json["name"],
-    governrate: json["governrate"] == null
+    governorate: json["governrate"] == null
         ? null
         : Specialization.fromMap(json["governrate"]),
   );
@@ -159,7 +159,7 @@ class City {
   Map<String, dynamic> toMap() => {
     "id": id,
     "name": name,
-    "governrate": governrate?.toMap(),
+    "governrate": governorate?.toMap(),
   };
 }
 

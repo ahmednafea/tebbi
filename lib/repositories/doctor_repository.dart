@@ -1,10 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:tebbi/configs/api_config.dart';
-import 'package:tebbi/models/city_data_response_model.dart';
 import 'package:tebbi/models/doctor_details_response_model.dart';
 import 'package:tebbi/models/doctors_data_response_model.dart';
-import 'package:tebbi/models/specialization_data_response_model.dart';
-import 'package:tebbi/models/specialization_details_data_response.dart';
 import 'package:tebbi/shared/services/network/dio_api_service.dart';
 
 class DoctorsRepository {

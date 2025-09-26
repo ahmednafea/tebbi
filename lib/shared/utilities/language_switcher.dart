@@ -12,7 +12,7 @@ class LanguageSwitcher extends StatelessWidget {
 
     final List<Map<String, dynamic>> languages = [
       {'locale': const Locale('en', 'US'), 'name': 'English', 'flag': '🇺🇸'},
-      {'locale': const Locale('ar', 'SA'), 'name': 'العربية', 'flag': '🇸🇦'},
+      {'locale': const Locale('ar', 'EG'), 'name': 'العربية', 'flag': '🇪🇬'},
     ];
 
     return Container(

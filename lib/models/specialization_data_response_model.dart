@@ -76,8 +76,8 @@ class Doctor {
   final Specialization? specialization;
   final City? city;
   final int? appointPrice;
-  final StartTime? startTime;
-  final EndTime? endTime;
+  final String? startTime;
+  final String? endTime;
 
   Doctor({
     this.id,
@@ -115,8 +115,8 @@ class Doctor {
         : Specialization.fromMap(json["specialization"]),
     city: json["city"] == null ? null : City.fromMap(json["city"]),
     appointPrice: json["appoint_price"],
-    startTime: startTimeValues.map[json["start_time"]]!,
-    endTime: endTimeValues.map[json["end_time"]]!,
+    startTime: json["start_time"]!,
+    endTime: json["end_time"]!,
   );
 
   Map<String, dynamic> toMap() => {
@@ -132,17 +132,17 @@ class Doctor {
     "specialization": specialization?.toMap(),
     "city": city?.toMap(),
     "appoint_price": appointPrice,
-    "start_time": startTimeValues.reverse[startTime],
-    "end_time": endTimeValues.reverse[endTime],
+    "start_time": startTime,
+    "end_time": endTime,
   };
 }
 
 class City {
   final int? id;
   final String? name;
-  final Specialization? governrate;
+  final Specialization? governorate;
 
-  City({this.id, this.name, this.governrate});
+  City({this.id, this.name, this.governorate});
 
   factory City.fromJson(String str) => City.fromMap(json.decode(str));
 
@@ -151,7 +151,7 @@ class City {
   factory City.fromMap(Map<String, dynamic> json) => City(
     id: json["id"],
     name: json["name"],
-    governrate: json["governrate"] == null
+    governorate: json["governrate"] == null
         ? null
         : Specialization.fromMap(json["governrate"]),
   );
@@ -159,7 +159,7 @@ class City {
   Map<String, dynamic> toMap() => {
     "id": id,
     "name": name,
-    "governrate": governrate?.toMap(),
+    "governrate": governorate?.toMap(),
   };
 }
 
@@ -188,17 +188,9 @@ final degreeValues = EnumValues({
   "Specialist": Degree.SPECIALIST,
 });
 
-enum EndTime { THE_200000_PM }
-
-final endTimeValues = EnumValues({"20:00:00 PM": EndTime.THE_200000_PM});
-
 enum Gender { FEMALE, MALE }
 
 final genderValues = EnumValues({"female": Gender.FEMALE, "male": Gender.MALE});
-
-enum StartTime { THE_140000_PM }
-
-final startTimeValues = EnumValues({"14:00:00 PM": StartTime.THE_140000_PM});
 
 class EnumValues<T> {
   Map<String, T> map;
